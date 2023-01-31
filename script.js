@@ -30,18 +30,21 @@ for (var i = 0; i < timeBlocks.length; i++){
 }
 
 function saveText(timeBlock, eventText){
-  localStorage.setItem(timeBlock, eventText);
-}
-
+  // console.log(timeBlock)
+  // console.log(eventText)
+  // localStorage.setItem(timeBlock, eventText);
 for (var i = 0; i < timeBlocks.length; i++){
   var timeBlock = timeBlocks[i];
-  console.log(timeBlock.find('button')[0])
-  timeBlock.find('button').get(0).addEventListener('click', function(){
-    var slot = timeBlock.attr('hour');
-    var text = timeBlock.find('textarea').val();
-    console.log(slot)
-    console.log(text)
-    // saveText(slot, text);
-  })
+  var slot = timeBlock.attr('hour');
+  var text = timeBlock.find('textarea').val();
+  // console.log(slot)
+  // console.log(text)
+  // console.log(timeBlock);
+  timeBlock.find('button').on('click', function(){
+    saveText(slot, text);
+  });
   
-}
+}}
+
+// cannot figure out why this causes the local storage to retun 17... 
+
